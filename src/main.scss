@@ -1,0 +1,97 @@
+.container {
+    max-width: 1200px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.card {
+    padding: 8px;
+    display: grid;
+    gap: 4px;
+    width: 100%;
+    border-radius: 16px;
+    border: 0.0625rem solid gray;
+    box-shadow: 1px 1px lightgray;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+        "p p t t t t t t"
+        "p p t t t t t t"
+        "d d d d d d d d"
+        "d d d d d d d d"
+    ;
+
+    img {
+        grid-area: p;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        aspect-ratio: 1;
+    }
+
+    h3 {
+        grid-area: t;
+        align-self: center;
+        justify-self: center;
+        text-align: left;
+        margin: 0 8px;
+    }
+
+    p {
+        margin-top: 10px;
+        grid-area: d;
+        font-size: 0.75rem;
+    }
+
+    transition: 0.1s linear;
+
+    &:hover {
+        transform: translateY(-8px);
+    }
+}
+
+.skeletonCard {
+    padding: 8px;
+    display: grid;
+    gap: 4px;
+    width: 100%;
+    border-radius: 16px;
+    border: 0.0625rem solid gray;
+    box-shadow: 1px 1px lightgray;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+        "p p t t t t t t"
+        "p p t t t t t t"
+    ;
+
+    .skeletonImage {
+        grid-area: p;
+        max-width: 100%;
+        border-radius: 50%;
+        aspect-ratio: 1;
+    }
+
+    .skeletonTitle {
+        grid-area: t;
+        align-self: center;
+    }
+
+    .skeletonDescription {
+        grid-column-start: 1;
+        grid-column-end: 9;
+    }
+
+    .skeletonTitle,
+    .skeletonDescription {
+        border-radius: 8px;
+    }
+
+    :nth-child(1 of .skeletonDescription) {
+        margin-top: 10px;
+    }
+
+    .skeletonDescription:last-child {
+        grid-column-end: 8;
+    }
+}
